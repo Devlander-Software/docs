@@ -1,0 +1,144 @@
+name: Auto Label Issues
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  label-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parse and apply labels based on issue content
+        run: |
+          labels_to_add=()
+          issue_body="${{ github.event.issue.body }}"
+
+          # Story Points
+          if [[ "$issue_body" == *"Story Points: 1"* ]]; then
+            labels_to_add+=("⏳ Story Points: 1")
+          elif [[ "$issue_body" == *"Story Points: 2-3"* ]]; then
+            labels_to_add+=("⏳ Story Points: 2-3")
+          elif [[ "$issue_body" == *"Story Points: 5"* ]]; then
+            labels_to_add+=("⏳ Story Points: 5")
+          elif [[ "$issue_body" == *"Story Points: 8"* ]]; then
+            labels_to_add+=("⏳ Story Points: 8")
+          elif [[ "$issue_body" == *"Story Points: 13"* ]]; then
+            labels_to_add+=("⏳ Story Points: 13")
+          elif [[ "$issue_body" == *"Story Points: 20+"* ]]; then
+            labels_to_add+=("⏳ Story Points: 20+")
+          fi
+
+          # Difficulty
+          if [[ "$issue_body" == *"Difficulty: Simple"* ]]; then
+            labels_to_add+=("🌱 Difficulty: Simple")
+          elif [[ "$issue_body" == *"Difficulty: Easy"* ]]; then
+            labels_to_add+=("👍 Difficulty: Easy")
+          elif [[ "$issue_body" == *"Difficulty: Moderate"* ]]; then
+            labels_to_add+=("🛠️ Difficulty: Moderate")
+          elif [[ "$issue_body" == *"Difficulty: Hard"* ]]; then
+            labels_to_add+=("🔥 Difficulty: Hard")
+          elif [[ "$issue_body" == *"Difficulty: Very Hard"* ]]; then
+            labels_to_add+=("🧠 Difficulty: Very Hard")
+          elif [[ "$issue_body" == *"Difficulty: Epic"* ]]; then
+            labels_to_add+=("⚫ Difficulty: Epic")
+          fi
+
+          # Priority
+          if [[ "$issue_body" == *"Priority: Critical"* ]]; then
+            labels_to_add+=("🚨 Priority: Critical")
+          elif [[ "$issue_body" == *"Priority: High"* ]]; then
+            labels_to_add+=("🚨 Priority: High")
+          elif [[ "$issue_body" == *"Priority: Medium"* ]]; then
+            labels_to_add+=("🚨 Priority: Medium")
+          elif [[ "$issue_body" == *"Priority: Low"* ]]; then
+            labels_to_add+=("🚨 Priority: Low")
+          fi
+
+          # Platform-Specific
+          if [[ "$issue_body" == *"Platform-Specific: iOS"* ]]; then
+            labels_to_add+=("🍎 Platform-Specific: iOS")
+          elif [[ "$issue_body" == *"Platform-Specific: Android"* ]]; then
+            labels_to_add+=("🤖 Platform-Specific: Android")
+          elif [[ "$issue_body" == *"Platform-Specific: Web"* ]]; then
+            labels_to_add+=("🌐 Platform-Specific: Web")
+          elif [[ "$issue_body" == *"Platform-Specific: Windows"* ]]; then
+            labels_to_add+=("🖥 Platform-Specific: Windows")
+          elif [[ "$issue_body" == *"Platform-Specific: macOS"* ]]; then
+            labels_to_add+=("🍏 Platform-Specific: macOS")
+          fi
+
+          # Pre-MVP/MVP/Post Release
+          if [[ "$issue_body" == *"Prelease"* ]]; then
+            labels_to_add+=("1️⃣ Prelease")
+          elif [[ "$issue_body" == *"MVP"* ]]; then
+            labels_to_add+=("2️⃣ MVP")
+          elif [[ "$issue_body" == *"Post Release"* ]]; then
+            labels_to_add+=("3️⃣ Post Release")
+          fi
+
+          # Testing Types
+          if [[ "$issue_body" == *"Testing: Unit"* ]]; then
+            labels_to_add+=("🔬 Testing: Unit")
+          elif [[ "$issue_body" == *"Testing: Integration"* ]]; then
+            labels_to_add+=("🧩 Testing: Integration")
+          elif [[ "$issue_body" == *"Testing: End-to-End"* ]]; then
+            labels_to_add+=("🌐 Testing: End-to-End")
+          elif [[ "$issue_body" == *"Validation: TestFlight"* ]]; then
+            labels_to_add+=("🧪 Validation: TestFlight")
+          elif [[ "$issue_body" == *"Validation: Platform-Specific"* ]]; then
+            labels_to_add+=("📱 Validation: Platform-Specific")
+          fi
+
+          # Deployment
+          if [[ "$issue_body" == *"Deployment: App Store Release"* ]]; then
+            labels_to_add+=("🏬 Deployment: App Store Release")
+          elif [[ "$issue_body" == *"Deployment: Google Play Release"* ]]; then
+            labels_to_add+=("📱 Deployment: Google Play Release")
+          elif [[ "$issue_body" == *"Deployment: TestFlight Release"* ]]; then
+            labels_to_add+=("🚀 Deployment: TestFlight Release")
+          fi
+
+          # Documentation
+          if [[ "$issue_body" == *"Documentation: Updates"* ]]; then
+            labels_to_add+=("📚 Documentation: Updates")
+          elif [[ "$issue_body" == *"Documentation: New"* ]]; then
+            labels_to_add+=("📝 Documentation: New")
+          fi
+
+          # Maintenance
+          if [[ "$issue_body" == *"Maintenance: Chore"* ]]; then
+            labels_to_add+=("🧹 Maintenance: Chore")
+          elif [[ "$issue_body" == *"Maintenance: Dependency Update"* ]]; then
+            labels_to_add+=("🔄 Maintenance: Dependency Update")
+          fi
+
+          # Technical Debt
+          if [[ "$issue_body" == *"Technical Debt"* ]]; then
+            labels_to_add+=("📉 Technical Debt")
+          fi
+
+          # Feature & Bug
+          if [[ "$issue_body" == *"Feature"* ]]; then
+            labels_to_add+=("✨ Feature")
+          elif [[ "$issue_body" == *"Bug"* ]]; then
+            labels_to_add+=("🪲 Bug")
+          fi
+
+          # Logic/Functions & QA/Automation
+          if [[ "$issue_body" == *"Logic/Functions"* ]]; then
+            labels_to_add+=("🧠 Logic/Functions")
+          elif [[ "$issue_body" == *"QA/Automation"* ]]; then
+            labels_to_add+=("🔬 QA/Automation")
+          fi
+
+          # Cloud Infrastructure & DevOps
+          if [[ "$issue_body" == *"Cloud Infrastructure"* ]]; then
+            labels_to_add+=("☁️ Cloud Infrastructure")
+          elif [[ "$issue_body" == *"DevOps"* ]]; then
+            labels_to_add+=("⚙️ DevOps")
+          fi
+
+          # Apply the labels
+          if [[ ${#labels_to_add[@]} -gt 0 ]]; then
+            gh issue edit ${{ github.event.issue.number }} --add-label "${labels_to_add[@]}"
+          fi
