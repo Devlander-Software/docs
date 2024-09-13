@@ -12,21 +12,6 @@ Please list the steps to reproduce the bug:
 
 ---
 
-### Expected Behavior
-What should have happened instead?
-
----
-
-### Actual Behavior
-What actually happened?
-
----
-
-### Screenshots/Media
-If applicable, add screenshots or screen recordings to help explain the problem.
-
----
-
 ### Platform
 Which platform does this bug affect? (Select one):
 - [ ] 🎨 **Client Side** (UI/UX)
@@ -42,19 +27,19 @@ Which platform does this bug affect? (Select one):
 
 ### Priority
 What is the priority of this bug? (Select one):
-- [ ] 🚨 **Priority: Critical** (The bug causes major issues or crashes)
-- [ ] 🚨 **Priority: High** (Important but doesn’t crash the system)
-- [ ] 🟧 **Priority: Medium** (Needs fixing but isn’t urgent)
-- [ ] 🟦 **Priority: Low** (Minor issue, can wait)
+- [ ] 🚨 **Priority: Critical**
+- [ ] 🚨 **Priority: High**
+- [ ] 🟧 **Priority: Medium**
+- [ ] 🟦 **Priority: Low**
 
 ---
 
 ### Severity
 Please select the severity of the bug:
-- [ ] 🐞 **Severity: Blocker** (Prevents any work from being done)
-- [ ] ⚠ **Severity: Major** (Affects major functionality)
-- [ ] 🔍 **Severity: Minor** (Minor impact on functionality)
-- [ ] 🟦 **Severity: Cosmetic** (UI/UX issue without breaking functionality)
+- [ ] 🐞 **Severity: Blocker**
+- [ ] ⚠ **Severity: Major**
+- [ ] 🔍 **Severity: Minor**
+- [ ] 🟦 **Severity: Cosmetic**
 
 ---
 

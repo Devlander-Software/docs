@@ -11,16 +11,6 @@ List the steps to reproduce the performance issue:
 
 ---
 
-### Expected Performance
-What should the performance look like?
-
----
-
-### Actual Performance
-How is the system currently behaving? (Include data points if possible.)
-
----
-
 ### Platform
 Which platform does this performance issue affect? (Select one):
 - [ ] 🎨 **Client Side** (UI/UX)

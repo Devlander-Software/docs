@@ -1,6 +1,3 @@
-Here’s the fully revised **GitHub Labels Documentation** with the **emojis** you previously provided and the improved organization for clarity:
-
----
 
 ## **GitHub Labels Guide**
 
@@ -194,9 +191,3 @@ These labels indicate tasks that are related to specific platforms or devices.
   - 📝 **Memo**  
   - **Description**: "Tasks for creating new documentation."
   - **Usage**: For drafting new guides, references, or onboarding materials.
-
----
-
-This revised guide includes the correct **emojis** and organizes everything into clear categories: **Priority**, **Effort and Complexity**, **Task Scope and Context**, **Platform-Specific**, **Testing and Validation**, and **Documentation** labels.
-
-Let me know if you'd like further refinements or adjustments!

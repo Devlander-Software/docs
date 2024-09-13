@@ -138,6 +138,21 @@ jobs:
             labels_to_add+=("⚙️ DevOps")
           fi
 
+          # Component/UI
+          if [[ "$issue_body" == *"Component/UI"* ]]; then
+            labels_to_add+=("👩‍💻 Component/UI")
+          fi
+
+          # Client Side
+          if [[ "$issue_body" == *"Client Side"* ]]; then
+            labels_to_add+=("🎨 Client Side")
+          fi
+
+          # Backend
+          if [[ "$issue_body" == *"Backend"* ]]; then
+            labels_to_add+=("🖥️ Backend")
+          fi
+
           # Apply the labels
           if [[ ${#labels_to_add[@]} -gt 0 ]]; then
             gh issue edit ${{ github.event.issue.number }} --add-label "${labels_to_add[@]}"
