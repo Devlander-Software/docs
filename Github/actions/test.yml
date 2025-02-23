@@ -1,0 +1,38 @@
+name: Test and Publish on Merge
+
+on:
+  pull_request:
+    branches:
+      - main # Only runs on pull requests targeting the main branch
+    types:
+      - closed # Only trigger when the pull request is closed (merged or not)
+
+jobs:
+  test-and-publish:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' # Only runs if the PR was merged and only on PRs to the main branch
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v2
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org/'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Run tests
+      - name: Run Tests
+        run: npm test
+
+      # Publish to NPM
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}

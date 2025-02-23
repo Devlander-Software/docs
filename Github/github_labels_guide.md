@@ -31,35 +31,45 @@ Priority labels help communicate how urgent or important a task is within the pr
 #### **Story Points Labels**
 Story points help estimate the effort or complexity required for a task.
 
+---
+
 - **Story Points: 1**  
-  - ⏳ **Hourglass**  
-  - **Description**: "For small, simple tasks that take minimal effort (1-2 hours)."
-  - **Usage**: For tasks that can be completed quickly and easily.
+  - ⏳ **Quick Task**  
+  - **Description**: *"For small, simple tasks that take minimal effort (up to 2 hours)."*  
+  - **Usage**: Use this for straightforward fixes, minor changes, or simple code tweaks (e.g., updating documentation, fixing typos, adjusting CSS styles).
 
 - **Story Points: 2-3**  
-  - ⏳ **Hourglass**  
-  - **Description**: "For straightforward tasks requiring moderate effort (2-4 hours)."
-  - **Usage**: For tasks that are slightly larger but still manageable.
+  - ⏳ **Short Task**  
+  - **Description**: *"For straightforward tasks requiring moderate effort (2-4 hours)."*  
+  - **Usage**: Assign to tasks involving basic logic or small features (e.g., writing a new function, adding basic tests, or minor UI enhancements).
 
 - **Story Points: 5**  
-  - ⏳ **Hourglass**  
-  - **Description**: "For tasks of medium complexity requiring several hours (5-8 hours)."
-  - **Usage**: Assign to tasks that involve moderate complexity or effort.
+  - ⏳ **Medium Task**  
+  - **Description**: *"For tasks of medium complexity requiring 5-8 hours."*  
+  - **Usage**: Suitable for moderately complex programming work (e.g., creating a reusable component, integrating an API, or adding state management logic).
 
 - **Story Points: 8**  
-  - ⏳ **Hourglass**  
-  - **Description**: "For moderately complex tasks taking a full day (10-16 hours)."
-  - **Usage**: Use for tasks that require significant time or effort.
+  - ⏳ **Complex Task**  
+  - **Description**: *"For moderately complex tasks that could take 1-2 full days (8-16 hours)."*  
+  - **Usage**: Use for larger tasks like setting up authentication, handling complex form validation, or implementing advanced data-fetching strategies.
 
 - **Story Points: 13**  
-  - ⏳ **Hourglass**  
-  - **Description**: "For complex tasks requiring multiple days (16+ hours)."
-  - **Usage**: For tasks that involve greater complexity or need coordination across multiple parts of the project.
+  - ⏳ **Large Task**  
+  - **Description**: *"For complex tasks that require multiple days (16+ hours)."*  
+  - **Usage**: Assign to substantial features, such as building a full CRUD module, setting up a notification system, or significant refactoring efforts.
 
 - **Story Points: 20+**  
-  - ⏳ **Hourglass**  
-  - **Description**: "For large, multi-phase tasks or epics (40+ hours)."
-  - **Usage**: For major tasks or project-spanning work requiring extensive planning and execution.
+  - ⏳ **Epic Task**  
+  - **Description**: *"For large, multi-phase tasks or epics requiring 40+ hours (up to multiple weeks)."*  
+  - **Usage**: Suitable for full-scale projects or major overhauls, such as migrating an entire app to a new framework, rewriting core systems, or integrating third-party services with extensive testing.
+
+
+
+
+
+
+
+
 
 #### **Difficulty Labels**
 These labels classify tasks by their complexity, guiding the team in understanding the level of challenge involved.
