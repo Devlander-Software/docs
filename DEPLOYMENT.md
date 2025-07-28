@@ -10,176 +10,125 @@ This guide will help you deploy your documentation website to GitHub Pages.
 
 ## Step 1: Enable GitHub Pages
 
-1. Go to your repository on GitHub
-2. Click on **Settings** tab
-3. Scroll down to **Pages** section in the left sidebar
+1. Go to your repository: https://github.com/Devlander-Software/docs
+2. Click **Settings** tab
+3. Scroll down to **Pages** in the left sidebar
 4. Under **Source**, select **GitHub Actions**
 5. Click **Save**
 
-## Step 2: Configure Repository Settings
+## Step 2: Set Production Branch as Default
 
-### Enable GitHub Actions
-
-1. Go to **Settings** → **Actions** → **General**
-2. Under **Workflow permissions**, select **Allow GitHub Actions to create and approve pull requests**
-3. Click **Save**
-
-### Configure Pages Settings
-
-1. Go to **Settings** → **Pages**
-2. Under **Build and deployment**:
-   - **Source**: Deploy from a branch
-   - **Branch**: `gh-pages` (will be created automatically)
-   - **Folder**: `/ (root)`
-3. Click **Save**
+1. In **Settings** → **General**
+2. Scroll to **Default branch**
+3. Ensure it's set to `production`
+4. Click **Update** (if needed)
 
 ## Step 3: Push Your Code
 
-The deployment will happen automatically when you push to the `main` branch:
+The deployment will happen automatically when you push to the `production` branch:
 
 ```bash
 # Add all changes
 git add .
 
 # Commit with conventional commit format
-git commit -m "feat: add GitHub Pages deployment"
+git commit -m "feat: add new documentation"
 
-# Push to main branch
-git push origin main
+# Push to production branch
+git push origin production
 ```
 
 ## Step 4: Monitor Deployment
 
 1. Go to **Actions** tab in your repository
-2. You'll see the "Deploy to GitHub Pages" workflow running
-3. Click on it to monitor the progress
-4. Wait for the deployment to complete (usually 2-3 minutes)
+2. You should see "Deploy to GitHub Pages" workflow running
+3. Wait for completion (2-3 minutes)
 
 ## Step 5: Access Your Website
 
-Once deployment is complete, your website will be available at:
+Once deployment is complete, your site will be available at:
+```
+https://devlander-software.github.io/docs/
+```
 
-```
-https://[your-username].github.io/[repository-name]/
+## Configuration Files
+
+### next.config.js
+```javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export', // Enable static export
+  trailingSlash: true,
+  basePath: process.env.NODE_ENV === 'production' ? '/docs' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/docs' : '',
+  // ... other configuration
+};
 ```
 
-For example:
-```
-https://landonjohnson.github.io/docs/
+### .github/workflows/deploy.yml
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ production ]  # Deploy from production branch
+  pull_request:
+    branches: [ production ]
+  workflow_dispatch:
+
+# ... rest of workflow configuration
 ```
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **Build Fails**
-   - Check the Actions logs for specific errors
-   - Ensure all dependencies are properly installed
+1. **Page not found (404)**
+   - Ensure GitHub Pages is enabled in repository settings
+   - Check that the repository is public
+   - Verify the workflow completed successfully
+
+2. **Build failures**
+   - Check the Actions tab for error logs
+   - Ensure all dependencies are in package.json
    - Verify TypeScript compilation passes
 
-2. **404 Errors**
-   - Make sure the `basePath` in `next.config.js` matches your repository name
-   - Check that the `out` directory is being generated correctly
-
-3. **Styling Issues**
-   - Verify that CSS is being loaded correctly
-   - Check that asset paths are correct for GitHub Pages
+3. **Styling issues**
+   - Check that Tailwind CSS is properly configured
+   - Verify that all CSS files are being built
 
 ### Manual Deployment
 
-If automatic deployment fails, you can deploy manually:
+If automatic deployment fails, you can manually trigger it:
 
-```bash
-# Build the project
-npm run build
-
-# The built files will be in the `out` directory
-# You can manually upload these to GitHub Pages
-```
-
-## Configuration Files
-
-### next.config.js
-
-The configuration is already set up for GitHub Pages:
-
-```javascript
-const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/docs' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/docs' : '',
-};
-```
-
-### .github/workflows/deploy.yml
-
-The GitHub Actions workflow handles:
-- Installing dependencies
-- Running tests and linting
-- Building the application
-- Deploying to GitHub Pages
-
-## Custom Domain (Optional)
-
-To use a custom domain:
-
-1. Go to **Settings** → **Pages**
-2. Under **Custom domain**, enter your domain
-3. Add a `CNAME` file to your repository root with your domain
-4. Configure DNS settings with your domain provider
+1. Go to **Actions** tab
+2. Click on "Deploy to GitHub Pages" workflow
+3. Click **Run workflow**
+4. Select `production` branch
+5. Click **Run workflow**
 
 ## Environment Variables
 
 The following environment variables are used during build:
 
-- `NODE_ENV=production` - Enables production optimizations
-- `GITHUB_PAGES=true` - Indicates GitHub Pages deployment
+- `NODE_ENV=production` - Ensures production build
+- `GITHUB_TOKEN` - Automatically provided by GitHub Actions
 
 ## Performance Optimization
 
-The deployment includes several optimizations:
-
-- **Static Export**: All pages are pre-rendered as static HTML
-- **Asset Optimization**: Images and CSS are optimized
-- **Caching**: Proper cache headers for better performance
-- **Compression**: Assets are compressed for faster loading
+- Images are optimized automatically by Next.js
+- CSS is minified and optimized
+- JavaScript is bundled and minified
+- Static assets are cached by CDN
 
 ## Security
 
-The deployment includes security headers:
-
-- `X-Frame-Options: DENY`
-- `X-Content-Type-Options: nosniff`
-- `Referrer-Policy: origin-when-cross-origin`
+- Security headers are automatically added
+- HTTPS is enforced
+- Content Security Policy is configured
 
 ## Monitoring
 
-After deployment, monitor your website:
-
-1. **Performance**: Use Lighthouse to check performance scores
-2. **Accessibility**: Verify WCAG compliance
-3. **SEO**: Check meta tags and structured data
-4. **Analytics**: Set up Google Analytics if needed
-
-## Updating Your Website
-
-To update your website:
-
-1. Make your changes locally
-2. Test with `npm run dev`
-3. Commit and push to `main` branch
-4. GitHub Actions will automatically deploy the updates
-
-## Support
-
-If you encounter issues:
-
-1. Check the GitHub Actions logs
-2. Verify your repository settings
-3. Ensure all dependencies are up to date
-4. Test the build locally with `npm run build`
-
----
-
-Your documentation website will be live and accessible to anyone with the URL! 
+- Monitor deployment status in GitHub Actions
+- Check website performance with browser dev tools
+- Use GitHub's built-in analytics for traffic insights 
