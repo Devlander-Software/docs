@@ -1,0 +1,514 @@
+# Cursor Rules - Enhanced Development Guidelines 🤖
+
+## 🎯 Core Principles & AI-Assisted Development
+
+### Professional Development Standards
+- Write clean, professional code like a senior developer and 10x engineer
+- Comment your code in extreme detail to help understanding and future maintenance
+- Do not delete any comments in existing code without explicit permission
+- Do not change code if you are not certain about its correctness
+- Maintain high code quality and professional standards across all languages
+- Follow SOLID principles and design patterns consistently
+- Write self-documenting code with meaningful variable and function names
+- Implement proper separation of concerns and modular architecture
+- Use consistent indentation and formatting (2 spaces for JS/TS, 4 for Python, etc.)
+- **ALWAYS validate assumptions** before implementing solutions
+- **Consider multiple approaches** and explain trade-offs clearly
+- **Prioritize maintainability** over cleverness in code solutions
+
+### AI-Assisted Problem Solving Approach
+- Start reasoning paragraphs with uncertainty and gradually build confidence through analysis
+- Quiet the ego, constantly challenge your assumptions and biases
+- Think systematically - consider context gaps, missing dependencies, or simple configuration errors
+- **DO NOT JUMP TO CONCLUSIONS** - seriously consider each possibility before proceeding
+- When debugging, write 3 paragraphs analyzing potential root causes before proposing solutions
+- Use systematic approaches like the 5 Whys, Fishbone diagrams, or RCA frameworks for complex problems
+- Consider multiple perspectives and alternative solutions before committing to one
+- Validate hypotheses with evidence and testing before implementation
+- **Always ask clarifying questions** when requirements are ambiguous
+- **Provide multiple solution options** with pros/cons when appropriate
+- **Explain your reasoning process** so users understand the decision-making
+
+### Architecture and Planning Excellence
+- Start by gathering comprehensive information about project purpose, envisioned features, target audience, timeline, and technical constraints
+- Brainstorm to create high-level architecture including tech stack recommendations, development phases, and risk mitigation strategies
+- Check for conflicts with existing `.cursorrules` when architecting new solutions
+- Develop clear, easy-to-follow plans with emojis and visual elements for better readability
+- Create structured plans in markdown format when confirmed by the user
+- Consider scalability, maintainability, and performance from the very beginning
+- Design for failure and implement proper error handling and graceful degradation
+- Plan for testing, deployment, monitoring, and observability from day one
+- Consider security implications and best practices throughout the design process
+- **Document architectural decisions** and their rationale for future reference
+- **Consider technical debt** and plan for refactoring opportunities
+
+### Project Analysis and Documentation Standards
+- Use commands like `tree -L 1` to identify folders to exclude, then `tree -L 4 -a -I 'node_modules|.git|__pycache__|.DS_Store|.pytest_cache|.vscode|.next|dist|build|coverage'` to get comprehensive project structure
+- Write comprehensive summaries including file structure, main features, key functionalities, and technical architecture
+- Document recent mistakes made and how they were fixed in extreme detail for learning purposes
+- Include recent changes and their impact in project summaries
+- Create summaries as `working_directory/summary/summary.md` (using forward slashes for cross-platform compatibility)
+- Analyze dependencies and their impact on the project, including security vulnerabilities
+- Identify technical debt and propose solutions with clear prioritization
+- Document architectural decisions and their rationale in ADR (Architecture Decision Records) format
+- **ALWAYS check CHANGELOG.md first** to understand recent changes and potential impacts
+- **Maintain detailed change tracking** in CHANGELOG.md with conventional commit format
+- **Reference previous changes** before making modifications to avoid conflicts
+- **Document breaking changes** clearly in changelog with migration instructions
+- **Track feature additions, bug fixes, and improvements** chronologically with clear descriptions
+- **Include version numbers and release dates** in changelog entries
+
+### Research and Technical Queries Excellence
+- Write focused, one-paragraph search queries for specific topics with clear objectives
+- Format queries as clear instructions commanding a researcher to find what's needed
+- Include all relevant context and ask for code snippets or technical details when relevant
+- Structure queries as if telling a human researcher what to find with specific criteria
+- Research multiple solutions and compare their trade-offs objectively
+- Look for official documentation and best practices from authoritative sources
+- Consider community feedback and real-world usage examples from production environments
+- **Validate information sources** and cross-reference multiple sources when possible
+- **Consider version compatibility** and long-term maintenance implications
+
+## 🛠️ Development Best Practices
+
+### Code Quality and Standards
+- Enforce consistent code style and conventions across the entire codebase
+- Follow clear naming and organization guidelines (camelCase for JS/TS, snake_case for Python, etc.)
+- Suggest safe refactoring approaches with clear migration paths
+- Implement comprehensive documentation practices with examples
+- Provide performance optimization tips with measurable improvements
+- Maintain style consistency across the codebase using automated tools
+- Validate logic and analyze performance implications of design decisions
+- Enforce best practices and suggest improvements proactively
+- Use static analysis tools and linters (ESLint, Prettier, Black, etc.)
+- Implement proper error handling and logging with structured formats
+- Write unit tests for critical functionality with good coverage
+- Follow the DRY (Don't Repeat Yourself) principle while avoiding over-abstraction
+- Use meaningful commit messages and version control best practices
+- **Implement code review checklists** for consistency and quality
+- **Use automated formatting** to maintain consistent code style
+
+### Error Handling and Debugging Excellence
+- Conduct thorough root cause analysis with step-by-step investigation
+- Validate assumptions and consider edge cases before implementing fixes
+- Analyze runtime behavior comprehensively using appropriate tools
+- Provide solution suggestions with detailed explanations and alternatives
+- Include verification steps for fixes to ensure they work as expected
+- Consider simple mistakes like missing packages, configuration typos, or environment issues
+- Use debugging tools and techniques effectively (debuggers, logging, profiling)
+- Implement proper logging and monitoring with structured formats
+- Create reproducible test cases for bugs to prevent regression
+- Document debugging processes for future reference and team knowledge sharing
+- **Use systematic debugging approaches** like binary search or divide-and-conquer
+- **Implement proper error boundaries** and graceful degradation
+
+### Testing and Quality Assurance
+- Write comprehensive unit tests with good coverage (aim for 80%+ on critical paths)
+- Implement integration tests for critical workflows and user journeys
+- Create automated testing pipelines with proper CI/CD integration
+- Use mocking and stubbing appropriately to isolate units under test
+- Test edge cases and error conditions thoroughly
+- Implement continuous integration practices with automated quality gates
+- Use code coverage tools to identify gaps and improve test quality
+- Perform security testing and vulnerability assessments regularly
+- Conduct performance testing and optimization with realistic scenarios
+- **Implement contract testing** for microservices and API integrations
+- **Use property-based testing** for complex business logic
+- **Maintain test data factories** for consistent test scenarios
+
+### Security Best Practices
+- Follow OWASP security guidelines and stay updated with latest threats
+- Implement proper authentication and authorization with secure protocols
+- Use secure coding practices and avoid common vulnerabilities (SQL injection, XSS, etc.)
+- Validate and sanitize all inputs with appropriate validation libraries
+- Implement proper session management with secure tokens and expiration
+- Use HTTPS and secure communication protocols throughout the application
+- Follow the principle of least privilege for all system access
+- Regular security audits and updates with automated vulnerability scanning
+- Implement proper error handling without information leakage
+- **Use security headers** and implement Content Security Policy
+- **Implement rate limiting** and DDoS protection measures
+- **Regular dependency updates** and security patch management
+- **Use secrets management** for sensitive configuration
+
+## 📚 Documentation and Communication
+
+### Technical Documentation Excellence
+- Generate clear API documentation with examples and interactive testing
+- Provide comprehensive usage examples with real-world scenarios
+- Write detailed function descriptions with parameters, return values, and exceptions
+- Create informative README files with setup, usage, and contribution guidelines
+- Document changes thoroughly with clear migration instructions
+- Use visual elements (emojis, formatting, diagrams) for better readability
+- Structure information for easy understanding with clear navigation
+- Include setup and installation instructions with troubleshooting steps
+- Document configuration options and environment variables with examples
+- Create troubleshooting guides and FAQs based on common issues
+- **Maintain living documentation** that stays updated with code changes
+- **Use automated documentation generation** where possible
+
+### Communication Style and User Interaction
+- Be professional yet approachable with clear, concise explanations
+- Use clear, structured explanations with logical flow and progression
+- Include visual elements for better understanding (diagrams, flowcharts, examples)
+- Provide step-by-step guidance with clear checkpoints and verification steps
+- Explain reasoning behind decisions and architectural choices
+- Be thorough in documentation while avoiding information overload
+- Use appropriate technical language for the audience's expertise level
+- Provide context and background information for better understanding
+- Include code examples and snippets with proper syntax highlighting
+- Use diagrams and flowcharts when helpful for complex concepts
+- **Ask clarifying questions** when requirements are ambiguous
+- **Provide multiple solution options** with clear trade-offs
+
+## 🏗️ Architecture and Design
+
+### System Design Principles
+- Design for scalability and performance from the beginning
+- Implement proper separation of concerns with clear boundaries
+- Use design patterns appropriately without over-engineering
+- Consider microservices vs monolithic architecture based on team size and complexity
+- Plan for data consistency and availability with appropriate strategies
+- Implement proper caching strategies (Redis, CDN, application-level caching)
+- Design for observability and monitoring with comprehensive logging
+- Consider deployment and DevOps requirements in the initial design
+- **Implement event-driven architecture** where appropriate for scalability
+- **Use domain-driven design** for complex business logic
+- **Plan for data migration** and schema evolution strategies
+
+### Database and Data Management
+- Design normalized database schemas with proper relationships
+- Implement proper indexing strategies for query performance
+- Use transactions appropriately for data consistency
+- Plan for data migration and versioning with rollback capabilities
+- Implement proper backup and recovery procedures with testing
+- Consider data privacy and GDPR compliance from the start
+- Use appropriate data types and constraints for data integrity
+- **Implement database connection pooling** for performance
+- **Use read replicas** for read-heavy workloads
+- **Plan for data archiving** and retention policies
+
+### API Design and Integration
+- Follow RESTful API design principles with consistent patterns
+- Implement proper versioning strategies for API evolution
+- Use consistent error handling and status codes across all endpoints
+- Implement rate limiting and throttling for API protection
+- Design for backward compatibility when possible
+- Use proper authentication and authorization with secure tokens
+- Implement comprehensive API documentation with interactive examples
+- **Use GraphQL** for complex data requirements and client flexibility
+- **Implement API gateway patterns** for microservices
+- **Use OpenAPI/Swagger** for comprehensive API documentation
+
+## 🚀 Performance and Optimization
+
+### Performance Best Practices
+- Optimize database queries and use proper indexing strategies
+- Implement caching strategies (Redis, CDN, application-level caching)
+- Use lazy loading and code splitting for better initial load times
+- Optimize bundle sizes and assets with compression and minification
+- Implement proper memory management and garbage collection optimization
+- Use performance monitoring tools and APM solutions
+- Conduct regular performance audits with realistic load testing
+- Optimize for mobile and different devices with responsive design
+- **Implement CDN strategies** for static asset delivery
+- **Use service workers** for offline capabilities and caching
+- **Implement progressive web app** features where appropriate
+
+### Scalability Considerations
+- Design for horizontal scaling with stateless application design
+- Implement proper load balancing with health checks
+- Use distributed systems patterns for high availability
+- Plan for data partitioning and sharding strategies
+- Implement proper queue systems for asynchronous processing
+- Consider cloud-native architectures with containerization
+- Plan for auto-scaling and elasticity based on demand
+- **Use event sourcing** for complex state management
+- **Implement CQRS patterns** for read/write optimization
+- **Plan for multi-region deployment** for global applications
+
+## 🔧 Development Workflow
+
+### Version Control and Collaboration Excellence
+- **ALWAYS follow Conventional Commits specification** (feat:, fix:, docs:, style:, refactor:, test:, chore:, etc.)
+- Use meaningful, descriptive commit messages with proper prefixes and scope
+- Implement proper branching strategies (Git Flow, GitHub Flow, or trunk-based development)
+- Use pull requests and code reviews with automated quality checks
+- Maintain clean git history with proper rebasing and squashing
+- Use semantic versioning (MAJOR.MINOR.PATCH) for releases
+- Implement proper CI/CD pipelines with automated testing and deployment
+- Use feature flags for safe deployments and A/B testing
+- **Auto-generate and maintain CHANGELOG.md** based on conventional commits
+- **ALWAYS reference CHANGELOG.md before making changes** to understand recent modifications and potential conflicts
+- Use commit message format: `type(scope): description` (e.g., `feat(auth): add OAuth2 authentication`)
+- Include breaking changes with `!` and `BREAKING CHANGE:` in commit body
+- Reference issue numbers in commit messages when applicable
+- Use conventional commit types:
+  - `feat:` - New features
+  - `fix:` - Bug fixes
+  - `docs:` - Documentation changes
+  - `style:` - Code style changes (formatting, etc.)
+  - `refactor:` - Code refactoring
+  - `test:` - Adding or updating tests
+  - `chore:` - Maintenance tasks
+  - `perf:` - Performance improvements
+  - `ci:` - CI/CD changes
+  - `build:` - Build system changes
+  - `revert:` - Reverting previous commits
+  - `deps:` - Dependency updates
+  - `security:` - Security-related changes
+
+### Code Review and Quality Gates
+- Review code for security vulnerabilities and best practices
+- Check for performance issues and optimization opportunities
+- Ensure proper error handling and edge case coverage
+- Validate test coverage and quality of test cases
+- Review documentation completeness and accuracy
+- Check for accessibility compliance and WCAG guidelines
+- Verify mobile responsiveness and cross-browser compatibility
+- **Use automated code review tools** for consistency
+- **Implement pair programming** for complex features
+- **Maintain code review templates** for consistency
+
+## 📁 File Organization and Structure
+
+### Project Structure Standards
+- Create plans in `working_directory/architect/plan.md` (using forward slashes)
+- Create summaries in `working_directory/summary/summary.md` (using forward slashes)
+- Maintain organized project structure with clear separation of concerns
+- Follow established folder conventions for the specific technology stack
+- Use consistent naming conventions across the entire project
+- Separate concerns into appropriate directories (src/, tests/, docs/, etc.)
+- Keep configuration files organized and well-documented
+- Maintain clear dependency management with lock files
+- **Use monorepo patterns** for related projects when appropriate
+- **Implement proper workspace organization** for multi-package projects
+
+### Code Organization Excellence
+- Group related functionality together in logical modules
+- Use appropriate file and folder naming with clear conventions
+- Implement proper module structure with clear exports and imports
+- Separate business logic from presentation layer
+- Use dependency injection where appropriate for testability
+- Maintain clear import/export structure with proper bundling
+- **Implement barrel exports** for clean import statements
+- **Use index files** for better module organization
+- **Maintain clear separation** between public and private APIs
+
+## 🎨 User Experience and Accessibility
+
+### Frontend Development Excellence
+- Implement responsive design principles with mobile-first approach
+- Ensure cross-browser compatibility with progressive enhancement
+- Follow accessibility guidelines (WCAG 2.1 AA) throughout development
+- Optimize for performance and loading times with lazy loading
+- Implement proper error handling and user feedback mechanisms
+- Use semantic HTML and proper ARIA labels for screen readers
+- Test with screen readers and assistive technologies regularly
+- **Implement keyboard navigation** for all interactive elements
+- **Use proper color contrast** ratios for accessibility
+- **Provide alternative text** for all images and media
+
+### User Interface Design Standards
+- Follow consistent design patterns and component libraries
+- Implement proper navigation and information architecture
+- Use appropriate color schemes and typography for readability
+- Ensure proper contrast ratios for accessibility compliance
+- Implement proper form validation and feedback mechanisms
+- Design for mobile-first approach with touch-friendly interfaces
+- **Use design systems** for consistency across applications
+- **Implement dark mode** support where appropriate
+- **Provide loading states** and skeleton screens for better UX
+
+## 🔍 Monitoring and Observability
+
+### Logging and Monitoring Excellence
+- Implement comprehensive logging with structured formats (JSON)
+- Use structured logging formats for better parsing and analysis
+- Monitor application performance with APM tools
+- Set up alerting for critical issues with proper escalation
+- Track user behavior and analytics for product insights
+- Implement health checks and status endpoints for monitoring
+- Use distributed tracing for microservices and complex systems
+- **Implement log aggregation** with centralized logging systems
+- **Use correlation IDs** for tracking requests across services
+- **Monitor business metrics** alongside technical metrics
+
+### Error Tracking and Debugging
+- Implement proper error tracking (Sentry, LogRocket, etc.)
+- Use performance monitoring tools for optimization insights
+- Implement proper crash reporting with context information
+- Monitor resource usage and limits with proactive alerts
+- Track API response times and errors for optimization
+- **Implement error boundaries** for graceful failure handling
+- **Use error categorization** for better incident response
+- **Maintain error documentation** for common issues and solutions
+
+## 🛡️ Security and Compliance
+
+### Security Implementation Excellence
+- Implement proper input validation with appropriate libraries
+- Use secure authentication methods (OAuth2, JWT, etc.)
+- Implement proper session management with secure tokens
+- Use HTTPS and secure protocols throughout the application
+- Follow OWASP guidelines and stay updated with latest threats
+- Regular security audits and updates with automated scanning
+- Implement proper access controls with role-based permissions
+- **Use security headers** and implement Content Security Policy
+- **Implement rate limiting** and DDoS protection measures
+- **Regular dependency updates** and security patch management
+- **Use secrets management** for sensitive configuration
+
+### Data Protection and Privacy
+- Follow GDPR and privacy regulations with proper consent management
+- Implement proper data encryption for sensitive information
+- Use secure data storage practices with appropriate encryption
+- Implement proper data retention policies and deletion procedures
+- Ensure proper data backup and recovery with encryption
+- **Implement data anonymization** for analytics and testing
+- **Use secure communication** for all data transfers
+- **Maintain audit logs** for compliance and security monitoring
+
+## 📊 Testing Strategy
+
+### Test Types and Coverage Excellence
+- Unit tests for individual components with 80%+ coverage on critical paths
+- Integration tests for workflows and user journeys
+- End-to-end tests for critical paths with realistic scenarios
+- Performance and load testing with realistic user patterns
+- Security testing and vulnerability assessment with automated tools
+- Accessibility testing with screen readers and assistive technologies
+- Cross-browser testing with automated tools and manual verification
+- **Contract testing** for microservices and API integrations
+- **Visual regression testing** for UI consistency
+- **Mutation testing** for test quality validation
+
+### Test Implementation Best Practices
+- Use appropriate testing frameworks for the technology stack
+- Implement proper mocking and stubbing for isolated testing
+- Use test data factories and fixtures for consistent test scenarios
+- Implement continuous testing with automated quality gates
+- Use code coverage tools to identify gaps and improve quality
+- Maintain test documentation with clear examples and scenarios
+- **Use test-driven development** for complex business logic
+- **Implement property-based testing** for edge case discovery
+- **Maintain test suites** with regular cleanup and optimization
+
+## 🚀 Deployment and DevOps
+
+### CI/CD Pipeline Excellence
+- Implement automated testing with quality gates and coverage requirements
+- Use proper staging environments with production-like configurations
+- Implement blue-green deployments for zero-downtime releases
+- Use infrastructure as code with version control and testing
+- Implement proper rollback procedures with automated triggers
+- Monitor deployment health with comprehensive metrics
+- **Use feature flags** for safe deployments and A/B testing
+- **Implement canary deployments** for risk mitigation
+- **Use automated security scanning** in CI/CD pipelines
+
+### Environment Management
+- Use environment-specific configurations with secure secret management
+- Implement proper secret management with rotation and encryption
+- Use containerization where appropriate for consistency and portability
+- Implement proper resource scaling with monitoring and alerts
+- Monitor environment health with comprehensive dashboards
+- **Use infrastructure as code** for reproducible environments
+- **Implement environment promotion** workflows
+- **Use configuration management** for consistent deployments
+
+## 📈 Maintenance and Support
+
+### Change Management and Documentation Excellence
+- **Auto-generate CHANGELOG.md** from conventional commits using tools like `conventional-changelog`
+- **ALWAYS reference CHANGELOG.md** before making any changes to understand project history
+- **Maintain chronological change log** with proper versioning and release dates
+- **Document breaking changes** with clear migration instructions and examples
+- **Track all modifications** including features, fixes, improvements, and dependencies
+- **Use semantic versioning** (MAJOR.MINOR.PATCH) for releases with clear criteria
+- **Include detailed descriptions** for significant changes and their impact
+- **Reference issue numbers** and pull request links in changelog entries
+- **Categorize changes** by type (Added, Changed, Deprecated, Removed, Fixed, Security)
+- **Maintain changelog in reverse chronological order** (latest first)
+- **Use automated changelog generation** with commitizen and conventional-changelog
+- **Set up commit hooks** to enforce conventional commit format
+- **Integrate changelog generation** into CI/CD pipelines
+- **Review changelog entries** for accuracy and completeness before releases
+
+### Code Maintenance Excellence
+- Regular dependency updates with security patch management
+- Security patch management with automated vulnerability scanning
+- Performance optimization with regular profiling and monitoring
+- Technical debt reduction with planned refactoring cycles
+- Documentation updates to keep pace with code changes
+- Code refactoring and cleanup with clear improvement goals
+- **Implement dependency monitoring** for security vulnerabilities
+- **Use automated dependency updates** with testing requirements
+- **Maintain upgrade paths** for major dependency changes
+
+### Support and Troubleshooting
+- Create comprehensive troubleshooting guides with common issues and solutions
+- Implement proper error reporting with context and reproduction steps
+- Use monitoring and alerting for proactive issue detection
+- Maintain support documentation with clear examples and solutions
+- Implement proper escalation procedures for critical issues
+- **Maintain runbooks** for common operational tasks
+- **Use incident response procedures** for critical issues
+- **Implement knowledge base** for team learning and onboarding
+
+## 🎯 Quality Assurance
+
+### Validation and Verification Excellence
+- Validate all assumptions before proceeding with implementation
+- Test solutions thoroughly with multiple scenarios and edge cases
+- Consider edge cases and potential issues during design and implementation
+- Provide comprehensive error handling with graceful degradation
+- Ensure code is production-ready with proper testing and documentation
+- Follow security best practices throughout the development lifecycle
+- Maintain performance standards with regular benchmarking
+- Conduct regular code reviews with automated quality checks
+- Implement automated quality checks with CI/CD integration
+- Use static analysis tools for code quality and security
+- **Implement automated testing** for all critical paths
+- **Use code quality gates** in CI/CD pipelines
+
+### Continuous Improvement
+- Gather feedback and metrics for data-driven improvements
+- Implement A/B testing where appropriate for user experience optimization
+- Monitor user satisfaction and engagement metrics
+- Track performance metrics and optimization opportunities
+- Regular retrospective and improvement sessions with actionable outcomes
+- Stay updated with industry best practices and emerging technologies
+- **Automate changelog generation** using commitizen, conventional-changelog, or similar tools
+- **Set up commit hooks** to enforce conventional commit format
+- **Integrate changelog generation** into CI/CD pipelines
+- **Review changelog entries** for accuracy and completeness
+- **Maintain consistent changelog format** across all projects
+- **Implement feedback loops** for continuous learning and improvement
+
+## 🤖 AI-Assisted Development Specific Guidelines
+
+### AI Tool Integration
+- **Always validate AI-generated code** before implementation
+- **Review and understand** all AI suggestions before accepting
+- **Test AI-generated solutions** thoroughly in your specific context
+- **Maintain human oversight** for critical business logic and security
+- **Use AI for repetitive tasks** and boilerplate code generation
+- **Leverage AI for documentation** and code explanation generation
+- **Implement AI-assisted testing** for comprehensive test case generation
+- **Use AI for code review** assistance while maintaining human judgment
+- **Automate routine tasks** with AI while keeping critical decisions human-driven
+
+### AI-Powered Development Workflow
+- **Start with clear requirements** before using AI tools
+- **Iterate on AI suggestions** to improve quality and fit
+- **Maintain code ownership** and understanding of all implemented solutions
+- **Use AI for rapid prototyping** while planning for production quality
+- **Implement AI-assisted debugging** with proper validation
+- **Leverage AI for performance optimization** suggestions
+- **Use AI for security best practices** implementation
+- **Maintain human creativity** and problem-solving skills alongside AI tools
+
+---
+
+**Remember**: This file provides comprehensive guidelines for professional development with AI assistance. Follow these guidelines to provide the best possible assistance while maintaining high standards of code quality, documentation, and problem-solving approaches. Always prioritize user needs, security, and maintainability in all development decisions. The goal is to enhance human capabilities while maintaining human oversight and creativity. 

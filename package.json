@@ -1,0 +1,141 @@
+{
+  "name": "development-documentation-system",
+  "version": "1.0.0",
+  "description": "Comprehensive development documentation system with standards, guidelines, and automation tools",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:unit": "jest --testPathPattern=unit",
+    "test:integration": "jest --testPathPattern=integration",
+    "test:e2e": "playwright test",
+    "test:security": "npm audit && snyk test",
+    "docs:dev": "next dev",
+    "docs:build": "next build",
+    "docs:export": "next export",
+    "docs:update": "node scripts/update-docs.js",
+    "docs:validate": "node scripts/validate-docs.js",
+    "changelog:generate": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog:release": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "commit": "git-cz",
+    "commit:retry": "git-cz --retry",
+    "setup-hooks": "husky install",
+    "verify-setup": "node scripts/verify-setup.js",
+    "quality-check": "npm run lint && npm run format:check && npm run type-check && npm test",
+    "pre-commit": "lint-staged",
+    "pre-push": "npm run quality-check",
+    "release:patch": "npm version patch && npm run changelog:generate && git push --follow-tags",
+    "release:minor": "npm version minor && npm run changelog:generate && git push --follow-tags",
+    "release:major": "npm version major && npm run changelog:generate && git push --follow-tags",
+    "migrate-imports": "node scripts/migrate-imports.js",
+    "deploy": "./scripts/deploy.sh",
+    "validate-imports": "node scripts/validate-imports.js",
+    "security:audit": "npm audit && snyk test",
+    "security:fix": "npm audit fix",
+    "deps:update": "npm update && npm audit fix",
+    "deps:check": "npm outdated",
+    "standards:check": "node scripts/check-standards.js",
+    "standards:apply": "node scripts/apply-standards.js"
+  },
+  "keywords": [
+    "documentation",
+    "development",
+    "standards",
+    "guidelines",
+    "typescript",
+    "react",
+    "testing",
+    "security",
+    "devops"
+  ],
+  "author": "Development Standards Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/docs/issues"
+  },
+  "homepage": "https://github.com/your-org/docs#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@types/jest": "^29.5.8",
+    "@types/marked": "^5.0.2",
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-syntax-highlighter": "^15.5.11",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "conventional-changelog-cli": "^4.1.0",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "^14.0.3",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.39.0",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.5.1",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "marked": "^9.1.6",
+    "next": "^14.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "snyk": "^1.1260.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "commitizen": {
+    "path": "cz-conventional-changelog"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+} 
