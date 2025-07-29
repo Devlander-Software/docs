@@ -1,13 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
   images: {
     domains: ['localhost'],
   },
-  // Enable static export for documentation
-  output: 'export',
-  trailingSlash: true,
-
   // Configure for documentation site
   basePath: process.env.NODE_ENV === 'production' ? '/docs' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/docs' : '',

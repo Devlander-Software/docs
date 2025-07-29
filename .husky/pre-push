@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run comprehensive quality checks
+npm run quality-check
+
+# Run security audit
+npm run security:audit
+
+# Run documentation validation
+npm run docs:validate 

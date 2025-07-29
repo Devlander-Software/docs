@@ -80,6 +80,152 @@
   .prose td {
     @apply border border-gray-300 px-4 py-2;
   }
+
+  /* Enhanced syntax highlighting */
+  .syntax-highlight {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4 font-mono text-sm;
+  }
+
+  .syntax-highlight code {
+    @apply bg-transparent text-gray-100 p-0;
+  }
+
+  /* Language-specific syntax highlighting */
+  .language-javascript,
+  .language-js {
+    @apply text-yellow-300;
+  }
+
+  .language-typescript,
+  .language-ts {
+    @apply text-blue-300;
+  }
+
+  .language-python,
+  .language-py {
+    @apply text-green-300;
+  }
+
+  .language-json {
+    @apply text-orange-300;
+  }
+
+  .language-html {
+    @apply text-pink-300;
+  }
+
+  .language-css {
+    @apply text-purple-300;
+  }
+
+  .language-bash,
+  .language-shell {
+    @apply text-green-300;
+  }
+
+  .language-markdown,
+  .language-md {
+    @apply text-gray-300;
+  }
+
+  /* Code block improvements */
+  .prose pre {
+    @apply relative;
+  }
+
+  .prose pre::before {
+    content: attr(data-language);
+    @apply absolute top-2 right-2 text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded;
+  }
+
+  /* Link improvements */
+  .prose a {
+    @apply text-blue-600 hover:text-blue-800 underline transition-colors duration-200;
+  }
+
+  .prose a:hover {
+    @apply text-blue-800;
+  }
+
+  /* Table improvements */
+  .prose table {
+    @apply w-full border-collapse border border-gray-300 mb-4 bg-white;
+  }
+
+  .prose th {
+    @apply bg-gray-100 border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900;
+  }
+
+  .prose td {
+    @apply border border-gray-300 px-4 py-2 text-gray-700;
+  }
+
+  .prose tr:nth-child(even) {
+    @apply bg-gray-50;
+  }
+
+  /* List improvements */
+  .prose ul {
+    @apply list-disc list-inside mb-4 space-y-1 pl-4;
+  }
+
+  .prose ol {
+    @apply list-decimal list-inside mb-4 space-y-1 pl-4;
+  }
+
+  .prose li {
+    @apply text-gray-700 mb-1;
+  }
+
+  /* Blockquote improvements */
+  .prose blockquote {
+    @apply border-l-4 border-blue-500 pl-4 italic text-gray-600 mb-4 bg-blue-50 py-2;
+  }
+
+  /* Heading improvements */
+  .prose h1 {
+    @apply text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2;
+  }
+
+  .prose h2 {
+    @apply text-2xl font-semibold text-gray-800 mb-4 mt-8 border-b border-gray-200 pb-1;
+  }
+
+  .prose h3 {
+    @apply text-xl font-semibold text-gray-800 mb-3 mt-6;
+  }
+
+  .prose h4 {
+    @apply text-lg font-semibold text-gray-800 mb-2 mt-4;
+  }
+
+  /* Inline code improvements */
+  .prose code {
+    @apply bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm font-mono border;
+  }
+
+  /* Responsive improvements */
+  @media (max-width: 768px) {
+    .prose {
+      @apply text-sm;
+    }
+    
+    .prose h1 {
+      @apply text-2xl;
+    }
+    
+    .prose h2 {
+      @apply text-xl;
+    }
+    
+    .prose h3 {
+      @apply text-lg;
+    }
+    
+    .prose pre {
+      @apply text-xs;
+    }
+  }
 }
 
 @layer utilities {

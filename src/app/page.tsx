@@ -1,5 +1,65 @@
 import React from 'react';
 import Link from 'next/link';
+import { Metadata } from 'next';
+import SearchBox from '../components/SearchBox';
+
+export const metadata: Metadata = {
+  title: 'Development Documentation System',
+  description: 'Comprehensive development standards and guidelines for modern software development teams. Covering TypeScript, React, testing, security, and DevOps best practices.',
+  keywords: [
+    'development documentation',
+    'software development standards',
+    'typescript guidelines',
+    'react best practices',
+    'testing strategy',
+    'security implementation',
+    'devops guidelines',
+    'code quality standards',
+    'programming best practices',
+    'development workflow',
+    'software engineering standards',
+    'technical documentation',
+    'development guidelines',
+    'coding standards',
+    'software architecture',
+    'development tools',
+    'code review process',
+    'quality assurance',
+    'development methodology',
+    'technical standards'
+  ],
+  openGraph: {
+    title: 'Development Documentation System',
+    description: 'Comprehensive development standards and guidelines for modern software development teams.',
+    type: 'website',
+    url: 'https://your-domain.com',
+    siteName: 'Development Documentation System',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Development Documentation System',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Development Documentation System',
+    description: 'Comprehensive development standards and guidelines for modern software development teams.',
+    images: ['/og-image.png'],
+  },
+  alternates: {
+    canonical: 'https://your-domain.com',
+  },
+  other: {
+    'article:published_time': new Date().toISOString(),
+    'article:modified_time': new Date().toISOString(),
+    'article:author': 'Development Standards Team',
+    'article:section': 'Technology',
+    'article:tag': 'development,documentation,standards,guidelines,typescript,react,testing,security,devops',
+  },
+};
 
 export default function HomePage() {
   const documentationSections = [
@@ -86,27 +146,33 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-12 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Comprehensive Development Standards
             </h2>
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              A complete documentation system with interconnected guidelines covering all aspects 
-              of modern software development. Eliminate duplication, maintain high standards, 
-              and provide clear navigation for your team.
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+              A complete documentation system providing standards, guidelines, and automation tools 
+              for modern software development teams. Covering everything from TypeScript and React 
+              to testing, security, and DevOps best practices.
             </p>
-            <div className="mt-8 flex justify-center space-x-4">
+            
+            {/* Search Box */}
+            <div className="max-w-md mx-auto mb-8">
+              <SearchBox />
+            </div>
+            
+            <div className="flex justify-center space-x-4">
               <Link
                 href="/docs"
-                className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Browse Documentation
               </Link>
               <Link
                 href="/docs/standards/project_guidelines_standard"
-                className="bg-gray-600 text-white px-6 py-3 rounded-md font-medium hover:bg-gray-700 transition-colors"
+                className="bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors"
               >
                 Get Started
               </Link>
@@ -115,7 +181,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Documentation Sections */}
+      {/* Documentation Categories */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
@@ -165,43 +231,43 @@ export default function HomePage() {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Key Features
+            Why Choose Our Documentation System?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📚</span>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">50+ Documents</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">Comprehensive</h4>
               <p className="text-gray-600 text-sm">
-                Comprehensive coverage of all development areas
+                Covering all aspects of modern software development
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🔗</span>
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">Interconnected</h4>
               <p className="text-gray-600 text-sm">
-                Cross-referenced documentation with no duplication
+                Cross-referenced content with clear navigation
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
+              <div className="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">⚡</span>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">Role-Based</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">Practical</h4>
               <p className="text-gray-600 text-sm">
-                Different entry points for different team members
+                Real-world examples and actionable guidelines
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🚀</span>
+              <div className="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🔄</span>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">Automated</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">Up-to-Date</h4>
               <p className="text-gray-600 text-sm">
-                Tools and scripts for standards adoption
+                Regularly updated with latest best practices
               </p>
             </div>
           </div>
@@ -213,11 +279,19 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-gray-300">
-              Development Documentation System v1.0.0
+              © 2024 Development Documentation System. All rights reserved.
             </p>
-            <p className="text-gray-400 text-sm mt-2">
-              Built with Next.js, TypeScript, and Tailwind CSS
-            </p>
+            <div className="mt-4 space-x-4">
+              <Link href="/docs" className="text-gray-300 hover:text-white">
+                Documentation
+              </Link>
+              <Link href="/CONTRIBUTING" className="text-gray-300 hover:text-white">
+                Contributing
+              </Link>
+              <Link href="/CHANGELOG" className="text-gray-300 hover:text-white">
+                Changelog
+              </Link>
+            </div>
           </div>
         </div>
       </footer>

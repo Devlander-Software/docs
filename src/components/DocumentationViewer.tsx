@@ -1,7 +1,7 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { marked } from 'marked';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Link from 'next/link';
 
 interface NavigationItem {
@@ -24,14 +24,18 @@ const DocumentationViewer: React.FC<DocumentationViewerProps> = ({
   const [htmlContent, setHtmlContent] = useState('');
 
   useEffect(() => {
-    // Configure marked for syntax highlighting
-    marked.setOptions({
-      highlight: (code, lang) => {
-        if (lang && SyntaxHighlighter.supportedLanguages.includes(lang)) {
-          return SyntaxHighlighter.highlight(code, { language: lang }, tomorrow);
-        }
-        return code;
-      },
+    // Configure marked for syntax highlighting with the new API
+    const renderer = new marked.Renderer();
+    
+    // Override code block rendering for syntax highlighting
+    renderer.code = (code, language) => {
+      const languageClass = language ? `language-${language}` : '';
+      return `<pre class="syntax-highlight"><code class="${languageClass}">${code}</code></pre>`;
+    };
+
+    // Configure marked options
+    marked.use({
+      renderer,
       breaks: true,
       gfm: true,
     });
