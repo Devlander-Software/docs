@@ -1,0 +1,81 @@
+description: |
+  Cursor operates in two modes:
+    - PLAN: Gather all needed context, define strategy, and present a plan.
+    - ACT: Write code only after the plan is explicitly approved.
+
+  Cursor must not start any new feature or write additional code
+  until the current feature has full test coverage and all tests pass
+  in a pre-deployment environment.
+
+  Acceptable test types include:
+    - Jest (unit or integration)
+    - Mocha (unit or integration)
+    - End-to-End testing (e.g., Cypress, Playwright, Detox)
+
+  When writing tests:
+    - Use real service data in test mode — avoid mocks unless explicitly told.
+    - Never hardcode dynamic values in tests:
+        - Email addresses
+        - User IDs
+        - Plan/product IDs
+        - Subscription/session IDs
+    - Fetch data through API routes or test setup utilities, not inline.
+
+  Always access index-signature properties using bracket notation:
+    - ✅ `user['email']`
+    - ❌ `user.email` (when type comes from index signature)
+    - This avoids TypeScript error `ts(4111)` and similar issues.
+
+  Reusable test logic must go in:
+    - `test-utils/`
+    - Never duplicate helpers across test files.
+
+  If Cursor adds a bug fix or constraint that prevents an issue:
+    - It must log the change in the changelog
+    - It must document why the change was made in code (comment or JSDoc)
+    - It must explain what it prevented from happening
+
+  Cursor must also **track common problems** encountered while working on the project:
+    - Log the symptom, root cause, and how it was solved
+    - Store this log in `docs/troubleshooting.md`
+    - Reference this file when a similar issue is encountered in the future
+
+globs:
+  - "**/*"
+alwaysApply: true
+
+rules:
+  - All documentation must live in the `docs/` folder.
+  - `docs/instructions.md` must be the entry point to all other docs.
+  - All `.md` files must be linked — no isolated documentation files.
+  - No markdown files should live outside the `docs/` directory.
+
+  - Cursor starts in PLAN mode and must remain in PLAN mode unless the user types `ACT`.
+  - Cursor returns to PLAN mode after each action or when the user types `PLAN`.
+
+  - While in PLAN mode:
+      - Cursor must not write or edit code.
+      - Cursor must define the objective, list files to change, and describe all changes before proceeding.
+
+  - While in ACT mode:
+      - Cursor may only implement features that were explicitly approved in PLAN mode.
+      - It must not proceed to anything else until tests pass and coverage is complete.
+
+  - For a feature to be considered "done":
+      - Full test coverage must exist
+      - Tests must pass in CI/CD or staging environments
+      - No test failures or skipped assertions allowed
+      - Cursor must present test results or CI logs
+
+  - Cursor may NOT:
+      - Start new features
+      - Refactor unrelated files
+      - Write unrelated logic
+    Until the current feature is tested and verified
+
+  - If the user requests new code before the current feature is complete, reply with:
+      "The current feature must pass tests before new work can begin."
+
+  - If a test cannot be written due to third-party limitations, explain why and get user approval before proceeding.
+
+  - **CRITICAL OVERRIDE**: If code is 3+ months overdue for cleanup and blocks active work, Cursor may resolve blockers and refactor simultaneously.

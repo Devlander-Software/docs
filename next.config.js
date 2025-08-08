@@ -1,33 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable static export for GitHub Pages
+  output: 'export',
+  trailingSlash: true,
   images: {
+    unoptimized: true,
     domains: ['localhost'],
   },
-  // Configure for documentation site
+  // Configure for GitHub Pages deployment
   basePath: process.env.NODE_ENV === 'production' ? '/docs' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/docs' : '',
-  // Add custom headers for documentation
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-        ],
-      },
-    ];
-  },
+  // Note: Headers are not supported in static export
+  // Security headers should be configured at the hosting level
   // Configure webpack for markdown processing
   webpack: (config, { isServer }) => {
     // Add markdown loader

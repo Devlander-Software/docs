@@ -232,4 +232,48 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Custom animations */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+  
+  .hover-glow {
+    @apply transition-shadow duration-200 hover:shadow-lg;
+  }
+  
+  /* Custom gradients */
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Card improvements */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  }
+  
+  /* Button improvements */
+  .btn-primary {
+    @apply bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition-all duration-200 font-medium shadow-md hover:shadow-lg;
+  }
+  
+  /* Navigation improvements */
+  .nav-link {
+    @apply text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+  }
+  
+  .nav-link:hover {
+    @apply text-gray-700 bg-gray-100;
+  }
 } 

@@ -6,11 +6,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Development Documentation System',
-    template: '%s | Development Documentation System'
+    default: 'Devlander Software - Development Guidelines',
+    template: '%s | Devlander Software'
   },
-  description: 'Comprehensive development standards and guidelines for modern software development teams. Covering TypeScript, React, testing, security, and DevOps best practices.',
+  description: 'Internal development standards and guidelines for Devlander Software team. Covering TypeScript, React, testing, security, and DevOps best practices.',
   keywords: [
+    'devlander software',
     'development',
     'documentation',
     'standards',
@@ -23,11 +24,12 @@ export const metadata: Metadata = {
     'software development',
     'best practices',
     'code quality',
-    'programming standards'
+    'programming standards',
+    'internal guidelines'
   ],
-  authors: [{ name: 'Development Standards Team' }],
-  creator: 'Development Standards Team',
-  publisher: 'Development Standards Team',
+  authors: [{ name: 'Devlander Software Team' }],
+  creator: 'Devlander Software Team',
+  publisher: 'Devlander Software Team',
   formatDetection: {
     email: false,
     address: false,
@@ -41,22 +43,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://your-domain.com',
-    title: 'Development Documentation System',
-    description: 'Comprehensive development standards and guidelines for modern software development teams.',
-    siteName: 'Development Documentation System',
+    title: 'Devlander Software - Development Guidelines',
+    description: 'Internal development standards and guidelines for Devlander Software team.',
+    siteName: 'Devlander Software',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Development Documentation System',
+        alt: 'Devlander Software - Development Guidelines',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Development Documentation System',
-    description: 'Comprehensive development standards and guidelines for modern software development teams.',
+    title: 'Devlander Software - Development Guidelines',
+    description: 'Internal development standards and guidelines for Devlander Software team.',
     images: ['/og-image.png'],
     creator: '@yourhandle',
   },
@@ -111,8 +113,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Development Documentation System",
-              "description": "Comprehensive development standards and guidelines for modern software development teams",
+              "name": "Devlander Software - Development Guidelines",
+              "description": "Internal development standards and guidelines for Devlander Software team",
               "url": "https://your-domain.com",
               "potentialAction": {
                 "@type": "SearchAction",
@@ -121,7 +123,7 @@ export default function RootLayout({
               },
               "publisher": {
                 "@type": "Organization",
-                "name": "Development Standards Team",
+                "name": "Devlander Software Team",
                 "url": "https://your-domain.com"
               }
             })

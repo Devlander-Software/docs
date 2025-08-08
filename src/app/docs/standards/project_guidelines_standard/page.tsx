@@ -1,357 +1,15 @@
 import React from 'react';
-import DocumentationViewer from '../../../../components/DocumentationViewer';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
-export default function ProjectGuidelinesStandardPage() {
-  const content = `# Project Guidelines Standard
+export const metadata: Metadata = {
+  title: 'Project Guidelines Standard - Devlander Software',
+  description: 'Standard project setup and guidelines for consistent development practices.',
+};
 
-## Overview
-
-This document defines a meta-framework for project guidelines, ensuring consistency and quality across all projects. It outlines a standard project structure, required configuration files, documentation standards, quality assurance, development workflow, technology-specific standards, environment management, monitoring, performance, accessibility, security, and deployment standards.
-
-## Table of Contents
-
-1. [Project Structure](#project-structure)
-2. [Required Configuration Files](#required-configuration-files)
-3. [Documentation Standards](#documentation-standards)
-4. [Quality Assurance](#quality-assurance)
-5. [Development Workflow](#development-workflow)
-6. [Technology-Specific Standards](#technology-specific-standards)
-7. [Environment Management](#environment-management)
-8. [Monitoring and Observability](#monitoring-and-observability)
-9. [Performance Standards](#performance-standards)
-10. [Accessibility Standards](#accessibility-standards)
-11. [Security Standards](#security-standards)
-12. [Deployment Standards](#deployment-standards)
-13. [Implementation Checklist](#implementation-checklist)
-14. [Quality Metrics](#quality-metrics)
-
-## Project Structure
-
-### Standard Directory Layout
-
-\`\`\`
-project-root/
-├── .cursorrules                    # AI development guidelines
-├── .editorconfig                   # Editor configuration
-├── .prettierrc                    # Code formatting rules
-├── .eslintrc.js                   # Linting rules
-├── .gitignore                     # Git ignore patterns
-├── README.md                      # Project overview
-├── CHANGELOG.md                   # Version history
-├── CONTRIBUTING.md                # Contribution guidelines
-├── SECURITY.md                    # Security policy
-├── CODE_OF_CONDUCT.md             # Community guidelines
-├── package.json                   # Dependencies and scripts
-├── tsconfig.json                  # TypeScript configuration
-├── docs/                          # Documentation
-│   ├── README.md                  # Documentation index
-│   ├── architecture/              # System architecture docs
-│   ├── development/               # Development guidelines
-│   ├── testing/                   # Testing documentation
-│   ├── security/                  # Security guidelines
-│   ├── devops/                    # DevOps documentation
-│   └── documentation/             # Documentation standards
-├── src/                           # Source code
-│   ├── components/                # Reusable components
-│   ├── pages/                     # Page components
-│   ├── lib/                       # Utility functions
-│   ├── types/                     # Type definitions
-│   └── styles/                    # Global styles
-├── tests/                         # Test files
-│   ├── unit/                      # Unit tests
-│   ├── integration/               # Integration tests
-│   └── e2e/                       # End-to-end tests
-├── scripts/                       # Build and utility scripts
-├── .github/                       # GitHub configuration
-│   ├── workflows/                 # CI/CD workflows
-│   └── ISSUE_TEMPLATE/            # Issue templates
-└── public/                        # Static assets
-\`\`\`
-
-## Required Configuration Files
-
-### .cursorrules
-AI development guidelines for consistent code generation and review.
-
-### .editorconfig
-Ensures consistent coding styles across different editors and IDEs.
-
-### .prettierrc
-Code formatting configuration for consistent code style.
-
-### .eslintrc.js
-JavaScript/TypeScript linting rules and best practices.
-
-### package.json
-Project metadata, dependencies, and scripts.
-
-## Documentation Standards
-
-### README.md Requirements
-- Project overview and purpose
-- Quick start guide
-- Installation instructions
-- Usage examples
-- Contributing guidelines
-- License information
-
-### CHANGELOG.md Requirements
-- Follow Keep a Changelog format
-- Use semantic versioning
-- Include migration guides for breaking changes
-- Reference issue numbers and PR links
-
-### Documentation Structure
-- Clear navigation and search
-- Code examples and snippets
-- Interactive demos where applicable
-- Version-specific documentation
-- API documentation with OpenAPI/Swagger
-
-## Quality Assurance
-
-### Code Review Checklist
-- [ ] Code follows style guidelines
-- [ ] Tests are included and passing
-- [ ] Documentation is updated
-- [ ] Security considerations addressed
-- [ ] Performance impact assessed
-- [ ] Accessibility requirements met
-
-### Testing Requirements
-- Unit test coverage: 80%+ for critical paths
-- Integration tests for API endpoints
-- E2E tests for user workflows
-- Performance tests for critical paths
-- Security tests for authentication/authorization
-
-### Code Quality Gates
-- ESLint passes with no errors
-- TypeScript compilation successful
-- All tests passing
-- Code coverage meets minimum thresholds
-- Security scan passes
-- Performance benchmarks met
-
-## Development Workflow
-
-### Git Workflow
-- Use Conventional Commits format
-- Feature branch workflow
-- Pull request reviews required
-- Automated quality checks
-- Semantic versioning for releases
-
-### Branch Naming Convention
-- \`feature/description\` for new features
-- \`fix/description\` for bug fixes
-- \`docs/description\` for documentation
-- \`refactor/description\` for refactoring
-
-### Commit Message Format
-\`\`\`
-type(scope): description
-
-[optional body]
-
-[optional footer]
-\`\`\`
-
-## Technology-Specific Standards
-
-### JavaScript/TypeScript
-- Use TypeScript for new projects
-- Strict type checking enabled
-- Path aliases for clean imports
-- ESLint + Prettier for formatting
-- Husky for pre-commit hooks
-
-### React/Next.js
-- Functional components with hooks
-- TypeScript for type safety
-- Component composition patterns
-- Performance optimization
-- Accessibility compliance
-
-### Python
-- Type hints for all functions
-- Black for code formatting
-- Pylint for linting
-- pytest for testing
-- Poetry for dependency management
-
-## Environment Management
-
-### Environment Variables
-- Use .env files for local development
-- Secure secret management in production
-- Environment-specific configurations
-- Validation of required variables
-
-### Docker Configuration
-- Multi-stage builds for optimization
-- Security scanning in CI/CD
-- Health checks for containers
-- Resource limits and monitoring
-
-## Monitoring and Observability
-
-### Logging Standards
-- Structured JSON logging
-- Correlation IDs for request tracking
-- Log levels: DEBUG, INFO, WARN, ERROR
-- Centralized log aggregation
-
-### Health Checks
-- Application health endpoints
-- Database connectivity checks
-- External service dependencies
-- Custom business logic health
-
-### Metrics and Alerting
-- Application performance metrics
-- Business metrics tracking
-- Automated alerting for critical issues
-- Dashboard for real-time monitoring
-
-## Performance Standards
-
-### Web Performance
-- Lighthouse score: 90+ for all metrics
-- First Contentful Paint: < 1.5s
-- Largest Contentful Paint: < 2.5s
-- Cumulative Layout Shift: < 0.1
-
-### API Performance
-- Response time: < 200ms for 95th percentile
-- Throughput: Handle expected load + 50%
-- Error rate: < 0.1% for production
-- Availability: 99.9% uptime
-
-## Accessibility Standards
-
-### WCAG 2.1 AA Compliance
-- Keyboard navigation support
-- Screen reader compatibility
-- Color contrast ratios
-- Alternative text for images
-- Focus management
-
-### Testing Requirements
-- Automated accessibility testing
-- Manual testing with screen readers
-- Keyboard-only navigation testing
-- Color blindness simulation
-
-## Security Standards
-
-### Authentication & Authorization
-- Secure token-based authentication
-- Role-based access control
-- Session management
-- Multi-factor authentication support
-
-### Data Protection
-- Input validation and sanitization
-- SQL injection prevention
-- XSS protection
-- CSRF protection
-- Secure headers implementation
-
-### Security Testing
-- Automated vulnerability scanning
-- Penetration testing
-- Security code reviews
-- Dependency vulnerability monitoring
-
-## Deployment Standards
-
-### CI/CD Pipeline
-- Automated testing on all commits
-- Staging environment deployment
-- Production deployment with approval
-- Rollback procedures
-- Blue-green deployment strategy
-
-### Infrastructure
-- Infrastructure as Code
-- Automated provisioning
-- Monitoring and alerting
-- Backup and disaster recovery
-- Security compliance
-
-## Implementation Checklist
-
-### Phase 1: Foundation
-- [ ] Set up project structure
-- [ ] Configure essential tools
-- [ ] Create initial documentation
-- [ ] Set up version control
-- [ ] Implement basic CI/CD
-
-### Phase 2: Quality & Security
-- [ ] Implement testing strategy
-- [ ] Set up security scanning
-- [ ] Configure monitoring
-- [ ] Establish code review process
-- [ ] Implement accessibility testing
-
-### Phase 3: DevOps & Automation
-- [ ] Complete CI/CD pipeline
-- [ ] Set up production monitoring
-- [ ] Implement automated deployments
-- [ ] Configure backup systems
-- [ ] Establish incident response
-
-### Phase 4: Documentation & Collaboration
-- [ ] Complete documentation system
-- [ ] Set up team collaboration tools
-- [ ] Implement knowledge sharing
-- [ ] Establish release management
-- [ ] Create onboarding materials
-
-## Quality Metrics
-
-### Code Quality
-- Test coverage: 80%+
-- Cyclomatic complexity: < 10
-- Code duplication: < 5%
-- Technical debt ratio: < 5%
-
-### Performance
-- Page load time: < 2 seconds
-- API response time: < 200ms
-- Error rate: < 0.1%
-- Availability: 99.9%
-
-### Security
-- Zero critical vulnerabilities
-- Security scan pass rate: 100%
-- Dependency updates: Within 30 days
-- Security review completion: 100%
-
-### Documentation
-- Documentation coverage: 100%
-- API documentation: Complete
-- User guides: Available
-- Code comments: Comprehensive
-
----
-
-This standard ensures consistent, high-quality development practices across all projects while maintaining flexibility for project-specific requirements.
-`;
-
-  const navigation = [
-    { title: 'TypeScript Guidelines', href: '/docs/standards/typescript_guidelines' },
-    { title: 'Testing Strategy', href: '/docs/testing/testing-strategy' },
-    { title: 'Security Implementation', href: '/docs/security/security-implementation' },
-    { title: 'Contributing Guidelines', href: '/CONTRIBUTING' },
-    { title: 'Changelog', href: '/CHANGELOG' },
-  ];
-
+export default function ProjectGuidelinesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -360,27 +18,169 @@ This standard ensures consistent, high-quality development practices across all 
               <Link href="/docs" className="text-gray-500 hover:text-gray-700 mr-4">
                 ← Back to Documentation
               </Link>
-              <h1 className="text-3xl font-bold text-gray-900">Project Guidelines Standard</h1>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Project Guidelines Standard
+              </h1>
             </div>
-            <nav className="flex space-x-8">
-              <Link href="/docs" className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                Documentation
-              </Link>
-              <Link href="/" className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                Home
-              </Link>
-            </nav>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <DocumentationViewer
-          content={content}
-          title="Project Guidelines Standard"
-          navigation={navigation}
-        />
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+          <div className="prose prose-lg max-w-none">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Project Guidelines Standard
+            </h2>
+            
+            <p className="text-lg text-gray-600 mb-8">
+              This document outlines the standard guidelines for setting up and maintaining projects 
+              at Devlander Software. These guidelines ensure consistency, maintainability, and 
+              high code quality across all our projects.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">📁 Project Structure</h3>
+            <p className="text-gray-600 mb-4">
+              Every project should follow a consistent directory structure:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+{`project-name/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── utils/
+│   ├── types/
+│   └── styles/
+├── public/
+├── tests/
+├── docs/
+├── .github/
+├── package.json
+├── README.md
+├── .gitignore
+├── .eslintrc.js
+├── .prettierrc
+└── tsconfig.json`}
+            </pre>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4 mt-8">🔧 Essential Dependencies</h3>
+            <p className="text-gray-600 mb-4">
+              All projects must include these core dependencies:
+            </p>
+            <ul className="list-disc pl-6 text-gray-600 mb-6">
+              <li><strong>TypeScript</strong> - For type safety and better development experience</li>
+              <li><strong>ESLint</strong> - For code linting and style enforcement</li>
+              <li><strong>Prettier</strong> - For consistent code formatting</li>
+              <li><strong>Jest</strong> - For unit testing</li>
+              <li><strong>Husky</strong> - For git hooks</li>
+              <li><strong>lint-staged</strong> - For pre-commit linting</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">📝 Documentation Requirements</h3>
+            <p className="text-gray-600 mb-4">
+              Every project must include comprehensive documentation:
+            </p>
+            <ul className="list-disc pl-6 text-gray-600 mb-6">
+              <li><strong>README.md</strong> - Project overview, setup instructions, and usage examples</li>
+              <li><strong>API Documentation</strong> - For backend projects with API endpoints</li>
+              <li><strong>Component Documentation</strong> - For frontend projects with reusable components</li>
+              <li><strong>Deployment Guide</strong> - Step-by-step deployment instructions</li>
+              <li><strong>Contributing Guidelines</strong> - How to contribute to the project</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">🧪 Testing Standards</h3>
+            <p className="text-gray-600 mb-4">
+              All projects must maintain high test coverage:
+            </p>
+            <ul className="list-disc pl-6 text-gray-600 mb-6">
+              <li><strong>Unit Tests</strong> - Minimum 80% coverage for critical business logic</li>
+              <li><strong>Integration Tests</strong> - For API endpoints and database operations</li>
+              <li><strong>E2E Tests</strong> - For critical user workflows</li>
+              <li><strong>Performance Tests</strong> - For high-traffic applications</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">🔒 Security Guidelines</h3>
+            <p className="text-gray-600 mb-4">
+              Security must be prioritized in all projects:
+            </p>
+            <ul className="list-disc pl-6 text-gray-600 mb-6">
+              <li><strong>Input Validation</strong> - All user inputs must be validated and sanitized</li>
+              <li><strong>Authentication</strong> - Implement secure authentication mechanisms</li>
+              <li><strong>Authorization</strong> - Proper role-based access control</li>
+              <li><strong>Data Encryption</strong> - Sensitive data must be encrypted at rest and in transit</li>
+              <li><strong>Security Headers</strong> - Implement proper security headers</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">🚀 Deployment Standards</h3>
+            <p className="text-gray-600 mb-4">
+              Consistent deployment practices across all projects:
+            </p>
+            <ul className="list-disc pl-6 text-gray-600 mb-6">
+              <li><strong>CI/CD Pipeline</strong> - Automated testing and deployment</li>
+              <li><strong>Environment Management</strong> - Separate configs for dev, staging, and production</li>
+              <li><strong>Monitoring</strong> - Application performance and error monitoring</li>
+              <li><strong>Backup Strategy</strong> - Regular data backups and recovery procedures</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">📊 Code Quality Standards</h3>
+            <p className="text-gray-600 mb-4">
+              Maintain high code quality through:
+            </p>
+            <ul className="list-disc pl-6 text-gray-600 mb-6">
+              <li><strong>Code Reviews</strong> - All changes must be reviewed by at least one team member</li>
+              <li><strong>Automated Linting</strong> - ESLint and Prettier configurations</li>
+              <li><strong>Type Safety</strong> - Strict TypeScript configurations</li>
+              <li><strong>Performance Optimization</strong> - Regular performance audits</li>
+            </ul>
+
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
+              <h4 className="text-lg font-semibold text-blue-900 mb-2">
+                💡 Quick Start Template
+              </h4>
+              <p className="text-blue-800 mb-4">
+                Use our project template to quickly set up a new project with all these guidelines:
+              </p>
+              <code className="bg-blue-100 text-blue-900 px-3 py-1 rounded text-sm">
+                npx create-devlander-project my-project
+              </code>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Related Documentation</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Link
+                  href="/docs/standards/typescript_guidelines"
+                  className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <h5 className="font-semibold text-gray-900">TypeScript Guidelines</h5>
+                  <p className="text-sm text-gray-600">TypeScript best practices and standards</p>
+                </Link>
+                <Link
+                  href="/docs/testing/testing-strategy"
+                  className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <h5 className="font-semibold text-gray-900">Testing Strategy</h5>
+                  <p className="text-sm text-gray-600">Comprehensive testing guidelines</p>
+                </Link>
+                <Link
+                  href="/docs/security/security-implementation"
+                  className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <h5 className="font-semibold text-gray-900">Security Implementation</h5>
+                  <p className="text-sm text-gray-600">Security best practices and implementation</p>
+                </Link>
+                <Link
+                  href="/CONTRIBUTING"
+                  className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <h5 className="font-semibold text-gray-900">Contributing Guidelines</h5>
+                  <p className="text-sm text-gray-600">How to contribute to our projects</p>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );

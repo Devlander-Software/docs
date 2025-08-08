@@ -1,134 +1,105 @@
-# Deployment Guide - GitHub Pages
+# Deployment Guide
 
-This guide will help you deploy your documentation website to GitHub Pages.
+## GitHub Pages Deployment
 
-## Prerequisites
+This documentation site is configured for automatic deployment to GitHub Pages.
 
-1. **GitHub Repository**: Your project must be in a GitHub repository
-2. **GitHub Pages Enabled**: Pages must be enabled in your repository settings
-3. **GitHub Actions**: Actions must be enabled for your repository
+### 🚀 Automatic Deployment
 
-## Step 1: Enable GitHub Pages
+The site is automatically deployed to GitHub Pages when changes are pushed to the `production` branch.
 
-1. Go to your repository: https://github.com/Devlander-Software/docs
-2. Click **Settings** tab
-3. Scroll down to **Pages** in the left sidebar
-4. Under **Source**, select **GitHub Actions**
-5. Click **Save**
+**Deployment URL**: `https://[username].github.io/docs`
 
-## Step 2: Set Production Branch as Default
+### 📋 Prerequisites
 
-1. In **Settings** → **General**
-2. Scroll to **Default branch**
-3. Ensure it's set to `production`
-4. Click **Update** (if needed)
+1. **GitHub Pages Enabled**: Ensure GitHub Pages is enabled in your repository settings
+2. **Branch Protection**: The `production` branch should be protected
+3. **GitHub Actions**: Ensure GitHub Actions are enabled for the repository
 
-## Step 3: Push Your Code
+### 🔧 Manual Deployment
 
-The deployment will happen automatically when you push to the `production` branch:
+To manually trigger a deployment:
 
-```bash
-# Add all changes
-git add .
+1. **Build locally**:
+   ```bash
+   npm run deploy:pages
+   ```
 
-# Commit with conventional commit format
-git commit -m "feat: add new documentation"
+2. **Push to production branch**:
+   ```bash
+   git add .
+   git commit -m "feat(deploy): update documentation site"
+   git push origin production
+   ```
 
-# Push to production branch
-git push origin production
-```
+3. **Monitor deployment**:
+   - Check the GitHub Actions tab in your repository
+   - Look for the "Deploy Next.js site to Pages" workflow
 
-## Step 4: Monitor Deployment
+### ⚙️ Configuration
 
-1. Go to **Actions** tab in your repository
-2. You should see "Deploy to GitHub Pages" workflow running
-3. Wait for completion (2-3 minutes)
+The site is configured with the following settings for GitHub Pages:
 
-## Step 5: Access Your Website
+- **Static Export**: Enabled (`output: 'export'`)
+- **Base Path**: `/docs` (for repository name)
+- **Trailing Slash**: Enabled for better compatibility
+- **Image Optimization**: Disabled (required for static export)
 
-Once deployment is complete, your site will be available at:
-```
-https://devlander-software.github.io/docs/
-```
+### 🔍 Troubleshooting
 
-## Configuration Files
+#### Common Issues
 
-### next.config.js
-```javascript
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export', // Enable static export
-  trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/docs' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/docs' : '',
-  // ... other configuration
-};
-```
-
-### .github/workflows/deploy.yml
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [ production ]  # Deploy from production branch
-  pull_request:
-    branches: [ production ]
-  workflow_dispatch:
-
-# ... rest of workflow configuration
-```
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Page not found (404)**
-   - Ensure GitHub Pages is enabled in repository settings
-   - Check that the repository is public
-   - Verify the workflow completed successfully
-
-2. **Build failures**
-   - Check the Actions tab for error logs
-   - Ensure all dependencies are in package.json
+1. **Build Failures**:
+   - Check GitHub Actions logs for specific errors
+   - Ensure all dependencies are properly installed
    - Verify TypeScript compilation passes
 
-3. **Styling issues**
-   - Check that Tailwind CSS is properly configured
-   - Verify that all CSS files are being built
+2. **404 Errors**:
+   - Ensure `basePath` is correctly set to `/docs`
+   - Check that all internal links use the correct base path
+   - Verify the `out` directory is generated correctly
 
-### Manual Deployment
+3. **Styling Issues**:
+   - Ensure CSS is properly bundled
+   - Check that static assets are in the correct location
+   - Verify image paths are correct
 
-If automatic deployment fails, you can manually trigger it:
+#### Debugging Steps
 
-1. Go to **Actions** tab
-2. Click on "Deploy to GitHub Pages" workflow
-3. Click **Run workflow**
-4. Select `production` branch
-5. Click **Run workflow**
+1. **Local Build Test**:
+   ```bash
+   npm run build
+   npm run start
+   ```
 
-## Environment Variables
+2. **Check Build Output**:
+   ```bash
+   ls -la out/
+   ```
 
-The following environment variables are used during build:
+3. **Verify Configuration**:
+   - Check `next.config.js` for correct settings
+   - Ensure `.nojekyll` file exists in `public/`
+   - Verify GitHub Actions workflow is correct
 
-- `NODE_ENV=production` - Ensures production build
-- `GITHUB_TOKEN` - Automatically provided by GitHub Actions
+### 📊 Monitoring
 
-## Performance Optimization
+- **Deployment Status**: Check GitHub Actions for deployment status
+- **Site Performance**: Use browser dev tools to monitor loading times
+- **Error Tracking**: Monitor browser console for any JavaScript errors
 
-- Images are optimized automatically by Next.js
-- CSS is minified and optimized
-- JavaScript is bundled and minified
-- Static assets are cached by CDN
+### 🔄 Update Process
 
-## Security
+1. Make changes to documentation
+2. Test locally: `npm run dev`
+3. Build and test: `npm run deploy:pages`
+4. Commit and push to `production` branch
+5. Monitor GitHub Actions deployment
+6. Verify changes on live site
 
-- Security headers are automatically added
-- HTTPS is enforced
-- Content Security Policy is configured
+### 🛡️ Security
 
-## Monitoring
-
-- Monitor deployment status in GitHub Actions
-- Check website performance with browser dev tools
-- Use GitHub's built-in analytics for traffic insights 
+- All deployments go through GitHub Actions with proper permissions
+- Static export ensures no server-side vulnerabilities
+- Security headers are configured in `next.config.js`
+- No sensitive data is exposed in the build output 
