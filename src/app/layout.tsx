@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
+import AnalyticsProvider from '../components/AnalyticsProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,17 +37,17 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://your-domain.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://your-domain.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://your-domain.com',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://your-domain.com',
     title: 'Devlander Software - Development Guidelines',
     description: 'Internal development standards and guidelines for Devlander Software team.',
-    siteName: 'Devlander Software',
+    siteName: process.env.NEXT_PUBLIC_SITE_NAME || 'Devlander Software',
     images: [
       {
         url: '/og-image.png',
@@ -60,7 +62,7 @@ export const metadata: Metadata = {
     title: 'Devlander Software - Development Guidelines',
     description: 'Internal development standards and guidelines for Devlander Software team.',
     images: ['/og-image.png'],
-    creator: '@yourhandle',
+    creator: '@devlandersoftware',
   },
   robots: {
     index: true,
@@ -106,6 +108,17 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#3B82F6" />
         <meta name="theme-color" content="#3B82F6" />
         
+        {/* Google AdSense Script */}
+        {process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT && (
+          <Script
+            id="adsense-script"
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
+        
         {/* Structured Data */}
         <script
           type="application/ld+json"
@@ -131,6 +144,17 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        {/* Google Ads and Analytics Integration */}
+        <AnalyticsProvider
+          googleAdsId={process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}
+          googleAnalyticsId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
+          conversionId={process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}
+          conversionLabel={process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL}
+          enableRemarketing={true}
+          enableConversionTracking={true}
+          enableAnalytics={true}
+        />
+        
         {children}
       </body>
     </html>

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import SearchBox from '../components/SearchBox';
+import AnalyticsExample from '../components/AnalyticsExample';
 
 export const metadata: Metadata = {
   title: 'Devlander Software - Development Guidelines',
@@ -344,6 +345,13 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Analytics Example */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnalyticsExample />
         </div>
       </section>
 
